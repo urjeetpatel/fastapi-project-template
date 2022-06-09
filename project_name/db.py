@@ -1,5 +1,9 @@
 from fastapi import Depends
 from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel.sql.expression import Select, SelectOfScalar
+
+SelectOfScalar.inherit_cache = True  # type: ignore
+Select.inherit_cache = True  # type: ignore
 
 from .config import settings
 
