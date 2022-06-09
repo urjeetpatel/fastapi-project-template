@@ -120,6 +120,10 @@ shell:            ## Open a shell in the project.
 	@if [ "$(USING_POETRY)" ]; then poetry shell; exit; fi
 	@./.venv/bin/ipython -c "from project_name import *"
 
+.PHONY: run
+run:              ## Run the project
+	$(ENV_PREFIX)python3 -m project_name run
+
 .PHONY: docker-build
 docker-build:	  ## Builder docker images
 	@docker-compose -f docker-compose-dev.yaml -p project_name build
